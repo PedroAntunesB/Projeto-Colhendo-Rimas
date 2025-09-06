@@ -4,7 +4,7 @@ import { connectMongoFunction } from "../database/connectMongo.js";
 import { poesiaModel } from "../database/db.js";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 8080;
 
 app.use(express.static("public"));
 
@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("../public/index.html"));
 });
 
-app.get("/:titulo", async (req, res) => {
+app.get("/poesia/:titulo", async (req, res) => {
   const tituloPoesia = req.params.titulo;
 
   try {
@@ -36,16 +36,27 @@ app.get("/:titulo", async (req, res) => {
   }
 });
 
+app.get('/autores', async (req, res) => {
+  const dados = await poesiaModel.find({ autor: { $exists: true } })
+  const autores = dados.map((i) => i.autor);
+  res.status(200).json(autores);
+});
+
+app.get('/:autor', async (req, res) => {
+  const autorParam = req.params.autor;
+  const dadosAutor = await poesiaModel.find({ autor: autorParam });
+  res.status(200).json(dadosAutor);
+});
 
 app.post("/adicionar", async (req, res) => {
   connectMongoFunction();
-  await poesiaModel.create(); // Isso é para colocar;
+  await poesiaModel.create();
   res.status(200).json({ message: "Poesia adicionada com sucesso" });
 });
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   connectMongoFunction();
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando em http://192.168.56.1:${port}`);
 });
 
 export { app };
