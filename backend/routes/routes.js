@@ -54,9 +54,9 @@ app.post("/adicionar", async (req, res) => {
   res.status(200).json({ message: "Poesia adicionada com sucesso" });
 });
 
-app.listen(port, "0.0.0.0", () => {
+app.listen(port, () => {
   connectMongoFunction();
-  console.log(`Servidor rodando em http://192.168.56.1:${port}`);
+  console.log(`Servidor rodando em http://localhost:${port}`);
 });
 
 export { app };
