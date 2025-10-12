@@ -1,15 +1,19 @@
-import express from 'express'
-import path from "path";
+import express from "express";
+import path, { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
 import { connectMongoFunction } from "../database/connectMongo.js";
 import { poesiaModel } from "../database/db.js";
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("../public/index.html"));
+  res.sendFile(resolve(__dirname, "public", "index.html"));
 });
 
 app.get("/poesia/:titulo", async (req, res) => {
@@ -49,14 +53,13 @@ app.get('/:autor', async (req, res) => {
 });
 
 app.post("/adicionar", async (req, res) => {
-  connectMongoFunction();
   await poesiaModel.create();
   res.status(200).json({ message: "Poesia adicionada com sucesso" });
 });
 
+connectMongoFunction();
 app.listen(port, () => {
-  connectMongoFunction();
-  console.log(`Servidor rodando em http://localhost:${port}`);
+  console.log(`Servidor rodando na porta ${port}`);
 });
 
 export { app };
