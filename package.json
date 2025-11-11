@@ -20,7 +20,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "vite",
     "client": "vite",
     "server": "nodemon ./backend/app.js"
   },
