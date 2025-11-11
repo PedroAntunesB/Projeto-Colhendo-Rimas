@@ -1,6 +1,5 @@
 export class DowloaderClass {
-    constructor(poesia, button) {
-        this.button = button;
+    constructor(poesia) {
         this.texto = "";
         this.texto += "Título: " + poesia.titulo + "\n";
         this.texto += "Autor: " + poesia.autor + "\n\n";

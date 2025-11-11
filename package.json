@@ -1,9 +1,17 @@
 {
   "dependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "axios": "^1.13.2",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "mongodb": "^6.18.0",
-    "mongoose": "^8.17.1"
+    "mongoose": "^8.17.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.5",
+    "vite": "^7.2.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
@@ -12,7 +20,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./backend/app.js"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "vite",
+    "server": "nodemon ./backend/app.js"
   },
   "keywords": [],
   "author": "",

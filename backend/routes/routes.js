@@ -1,20 +1,13 @@
 import express from "express";
-import path, { resolve, dirname } from "path";
-import { fileURLToPath } from "url";
+import cors from "cors";
 import { connectMongoFunction } from "../database/connectMongo.js";
 import { poesiaModel } from "../database/db.js";
 
 const app = express();
 const port = process.env.PORT || 8080;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
+app.use(cors())
 app.use(express.static("public"));
-
-app.get("/", (req, res) => {
-  res.sendFile(resolve(__dirname, "public", "index.html"));
-});
 
 app.get("/poesia/:titulo", async (req, res) => {
   const tituloPoesia = req.params.titulo;
