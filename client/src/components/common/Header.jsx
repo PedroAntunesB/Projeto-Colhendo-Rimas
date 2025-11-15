@@ -6,7 +6,7 @@ export function Header() {
     <header>
       <button className="buttonAutores">
         <Link className="remove-link" to="/autores">
-          📖 Autores
+          Autores
         </Link>
       </button>
       <button>
