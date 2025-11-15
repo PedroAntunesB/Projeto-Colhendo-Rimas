@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function SearchDropdown() {
   const [input, setInput] = useState("");
@@ -52,7 +53,7 @@ export default function SearchDropdown() {
         className="btPesquisar"
         onClick={() => {
           if (!lista.includes(input.toUpperCase())) {
-            alert("Poesia não encontrada!");
+            toast.error("Poesia não encontrada");
           }
         }}
       >
@@ -110,6 +111,7 @@ export default function SearchDropdown() {
           )}
         </ul>
       )}
+      <Toaster />
     </div>
   );
 }

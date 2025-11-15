@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import SearchDropdown from "./SearchDropdown";
 
 export function Header() {
-  const [pesquisa, setPesquisa] = useState("");
-  const handleChange = (event) => {
-    setPesquisa(event.target.value.toUpperCase());
-  };
   return (
     <header>
       <button className="buttonAutores">
@@ -19,14 +14,6 @@ export function Header() {
           Home
         </Link>
       </button>
-
-      {/* <input
-        className="inputPesquisar"
-        type="text"
-        placeholder="Pesquisar Título..."
-        value={pesquisa}
-        onChange={handleChange}
-      /> */}
       <SearchDropdown />
     </header>
   );
