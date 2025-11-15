@@ -14,7 +14,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "build": "npm i && cd ./client && vite build",
+    "build": "vite build",
     "client": "cd ./client && vite"
   },
   "keywords": [],
