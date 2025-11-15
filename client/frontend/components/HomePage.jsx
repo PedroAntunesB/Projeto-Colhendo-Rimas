@@ -16,7 +16,7 @@ export function HomePage() {
               essência da nossa identidade cultural.
             </p>
           </div>
-          <img src="src\images\imgSobre.jpg" alt="img-sobre" />
+          <img src="client\images\imgSobre.jpg" alt="img-sobre" />
         </div>
 
         <div className="container">
@@ -32,7 +32,7 @@ export function HomePage() {
               povo que nunca esquece sua querência.
             </p>
           </div>
-          <img src="src\images\imgPaixão.jpg" alt="img-sobre" />
+          <img src="client\images\imgPaixão.jpg" alt="img-sobre" />
         </div>
       </main>
     </>
