@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap");
 
-/* ---------- RESET ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +13,6 @@ body {
   font-family: "EB Garamond", serif;
 }
 
-/* ---------- HEADER ---------- */
 header {
   width: 100%;
   display: flex;
@@ -26,19 +24,20 @@ header {
 }
 
 header input {
-  padding: 8px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   width: 200px;
 }
 
 header button {
+  height: 35px;
   text-decoration: none;
   border: none;
-  padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  margin: 3px;
 }
 
 header button:hover {
@@ -46,6 +45,7 @@ header button:hover {
 }
 
 .remove-link {
+  padding: 12px 12px;
   text-decoration: none;
   color: #333;
 }
@@ -206,4 +206,88 @@ button:active,
 .download-btn:hover {
   background-color: #52130c;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  header input {
+    width: 90%;
+  }
+
+  header button {
+    width: 90%;
+    padding: 10px;
+  }
+
+  main {
+    padding: 30px 16px;
+  }
+
+  .container {
+    flex-direction: column;
+    text-align: center;
+    width: 90%;
+    min-width: unset;
+    padding: 20px;
+  }
+
+  .container img {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .container h2,
+  .container p {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .list-container {
+    width: 90%;
+    padding: 16px;
+    margin-top: 20px;
+  }
+
+  .divContainer {
+    width: 90vw;
+    padding: 14px;
+  }
+
+  .conteudoPoesia p {
+    font-size: 1.2rem;
+  }
+
+  footer {
+    position: relative;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .container img {
+    width: 100%;
+  }
+
+  .conteudoPoesia .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .conteudoPoesia p {
+    font-size: 1.1rem;
+  }
+
+  .download-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
 }

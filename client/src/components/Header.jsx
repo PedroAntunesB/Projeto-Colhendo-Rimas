@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import SearchDropdown from "./SearchDropdown";
 
 export function Header() {
   const [pesquisa, setPesquisa] = useState("");
@@ -19,18 +20,14 @@ export function Header() {
         </Link>
       </button>
 
-      <input
+      {/* <input
         className="inputPesquisar"
         type="text"
         placeholder="Pesquisar Título..."
         value={pesquisa}
         onChange={handleChange}
-      />
-      <button className="btPesquisar">
-        <Link className="remove-link" to={`/pesquisar/${pesquisa}`}>
-          🔍
-        </Link>
-      </button>
+      /> */}
+      <SearchDropdown />
     </header>
   );
 }
