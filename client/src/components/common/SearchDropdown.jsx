@@ -45,7 +45,7 @@ export default function SearchDropdown() {
         type="text"
         value={input}
         onChange={handleChange}
-        placeholder="Pesquisar..."
+        placeholder="Pesquisar Poesia..."
         className="inputPesquisar"
       />
 

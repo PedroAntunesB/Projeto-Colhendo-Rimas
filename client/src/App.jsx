@@ -4,6 +4,8 @@ import { Header } from "./components/common/Header";
 import { HomePage } from "./components/home/HomePage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { PoesiaPage } from "./components/poesia/PoesiaPage";
+import { DancasTradicionaisPage } from "./components/dancas-tradicionais/DancasTradicionaisPage";
+import DancaPage from "./components/dancas-tradicionais/DancaPage";
 export default function App() {
   return (
     <BrowserRouter>
@@ -11,7 +13,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/autores" element={<AutoresPage />} />
-        <Route path="/dancas-tradicionais" element={<h1>Em breve...</h1>} />
+        <Route
+          path="/dancas-tradicionais"
+          element={<DancasTradicionaisPage />}
+        />
+        <Route path="/dancas-tradicionais/:danca" element={<DancaPage />} />
         <Route path="/autor/:autor" element={<AutorPage />} />
         <Route path="/autor/:autor/poesia/:poesia" element={<PoesiaPage />} />
         <Route path="/pesquisar/:poesia" element={<PoesiaPage />} />
